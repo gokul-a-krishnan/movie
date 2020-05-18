@@ -5,6 +5,7 @@ class MoviesApi {
   final String _baseUrl = 'https://api.themoviedb.org/3';
   final String _imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
   final String _apiKey = 'YOUR_API_KEY';
+
   final String _nowPlayingPath = '/movie/now_playing';
   final String _popularPath = '/movie/popular';
   final String _topRatedPath = '/movie/top_rated';
@@ -66,7 +67,6 @@ class MoviesApi {
     List data = response.data['results'];
     List<Movie> movies = List<Movie>();
     data.forEach((element) {
-      print(element);
       element['poster_path'] = _imageBaseUrl + element['poster_path'];
       if (element['backdrop_path'] != null)
         element['backdrop_path'] = _imageBaseUrl + element['backdrop_path'];

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/bloc/movies_bloc.dart';
 import 'package:movie/model/movie.dart';
 import 'package:movie/pages/router.gr.dart';
+import 'package:shimmer/shimmer.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -98,8 +99,48 @@ class _HomePageState extends State<HomePage>
               ),
             );
           }
-          return Center(
-            child: CircularProgressIndicator(),
+          return Shimmer.fromColors(
+            baseColor: Colors.grey[300],
+            highlightColor: Colors.grey[100],
+            enabled: true,
+            child: GridView.count(
+              crossAxisCount: 2,
+              children: List.generate(
+                20,
+                (index) => Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: 135.0,
+                        height: 150.0,
+                        color: Colors.white,
+                      ),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 2.0),
+                            ),
+                            Container(
+                              padding: EdgeInsets.fromLTRB(0, 0, 24, 0),
+                              width: double.infinity,
+                              height: 8.0,
+                              color: Colors.white,
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ), //            child: ListView.builder(
+//              itemBuilder: (_, __) => ,
+//              itemCount: 6,
+//            ),
           );
         },
       ),

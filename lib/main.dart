@@ -21,10 +21,6 @@ class App extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         builder: ExtendedNavigator<Router>(router: Router()),
-//      home: BlocProvider(
-//        create: (BuildContext context) => MoviesBloc(),
-//        child: HomePage(),
-//      ),
       ),
     );
   }

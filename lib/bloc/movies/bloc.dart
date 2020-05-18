@@ -5,7 +5,7 @@ import 'package:movie/bloc/movies/state.dart';
 import 'package:movie/model/movie.dart';
 
 class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
-  List<Movie> _movies = List<Movie>();
+  List<Movie> _movies;
   MoviesApi _moviesApi;
 
   MoviesBloc() {
